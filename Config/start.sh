@@ -1,0 +1,1 @@
+# Moving start.sh to Config directory 

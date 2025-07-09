@@ -1,0 +1,121 @@
+# Atulya AI - Dynamic Intelligence System
+# .gitignore file
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Environment Variables
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+logs/
+*.log
+log.txt
+
+# Models (downloaded dynamically)
+models/
+Models/
+*.bin
+*.safetensors
+*.gguf
+
+# Memory and Data
+memory/
+data/
+Data/
+*.db
+*.sqlite
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Uploads
+uploads/
+*.upload
+
+# Cache
+.cache/
+__cache__/
+*.cache
+
+# Jupyter
+.ipynb_checkpoints/
+
+# PyTorch
+*.pth
+*.pt
+
+# TensorFlow
+*.h5
+*.pb
+
+# Hugging Face Cache
+.cache/huggingface/
+transformers_cache/
+
+# System files
+*.pid
+*.lock
+
+# Testing (kept in local only)
+testing/
+test_results/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation builds
+docs/_build/
+
+# Backup files
+*.bak
+*.backup
+*~ 

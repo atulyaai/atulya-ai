@@ -1,0 +1,71 @@
+# Atul Vij - User Profile
+# Personal settings and preferences for Atulya AI
+
+user:
+  name: "Atul Vij"
+  id: "atul-vij"
+  email: "atul@atulya-ai.com"
+  role: "admin"
+  created: "2024-01-01"
+  last_active: "2024-01-01"
+
+# Personality and interaction preferences
+personality:
+  tone: "professional"
+  style: "conversational"
+  expertise: ["technology", "coding", "business", "writing"]
+  language: "en"
+  formality: "medium"
+
+# Model preferences
+model:
+  preferred_model: "deepseek-r1-0528"
+  temperature: 0.7
+  max_tokens: 2048
+  context_length: 32768
+
+# Tool preferences
+tools:
+  auto_use: true
+  preferred_tools:
+    - "web_search"
+    - "file_io"
+    - "run_python"
+    - "code_editor"
+  restricted_tools: []
+
+# Memory preferences
+memory:
+  retention_days: 365
+  max_episodes: 1000
+  auto_summarize: true
+  privacy_level: "standard"
+
+# UI preferences
+interface:
+  theme: "light"
+  compact_mode: true
+  show_tools: true
+  auto_save: true
+  notifications: true
+
+# Voice preferences
+voice:
+  enabled: true
+  tts_voice: "default"
+  stt_language: "en"
+  vad_sensitivity: 0.5
+
+# Security preferences
+security:
+  require_confirmation: false
+  log_interactions: true
+  data_retention: "standard"
+  api_access: true
+
+# Custom settings
+custom:
+  timezone: "UTC"
+  date_format: "YYYY-MM-DD"
+  currency: "USD"
+  units: "metric" 

@@ -1,0 +1,136 @@
+# Atulya AI v0.1.0 - Complete Production Dependencies
+# Latest compatible versions for Python 3.12
+# 8 Essential Models Support
+
+# =============================================================================
+# CORE WEB FRAMEWORK
+# =============================================================================
+fastapi>=0.116.0
+uvicorn[standard]>=0.32.0
+pydantic>=2.10.0
+pydantic-settings>=2.8.0
+starlette>=0.38.0
+
+# =============================================================================
+# WEB UI
+# =============================================================================
+streamlit>=1.35.0
+altair>=5.3.0
+pydeck>=0.9.0
+
+# =============================================================================
+# AI/ML MODELS & APIs
+# =============================================================================
+openai>=1.60.0
+anthropic>=0.25.0
+transformers>=4.40.0
+torch>=2.3.0
+tokenizers>=0.20.0
+safetensors>=0.4.0
+huggingface-hub>=0.25.0
+
+# =============================================================================
+# VOICE PROCESSING (STT/TTS)
+# =============================================================================
+# Speech-to-Text (Whisper)
+openai-whisper>=20231117
+# Text-to-Speech (Coqui TTS)
+TTS>=0.22.0
+soundfile>=0.12.1
+librosa>=0.11.0
+
+# =============================================================================
+# COMPUTER VISION & VIDEO
+# =============================================================================
+opencv-python>=4.10.0
+Pillow>=11.0.0
+# Video processing
+av>=11.0.0
+decord>=0.6.0
+
+# =============================================================================
+# DOCUMENT PROCESSING
+# =============================================================================
+# PDF and document processing
+PyPDF2>=3.0.0
+python-docx>=0.8.11
+pdfplumber>=0.10.0
+pytesseract>=0.3.10
+
+# =============================================================================
+# AUDIO GENERATION & PROCESSING
+# =============================================================================
+# Audio manipulation and generation
+scipy>=1.11.0
+torchaudio>=2.3.0
+audioread>=3.0.0
+
+# =============================================================================
+# VECTOR DATABASE & EMBEDDINGS
+# =============================================================================
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
+
+# =============================================================================
+# WEB TOOLS & REQUESTS
+# =============================================================================
+requests>=2.32.0
+httpx>=0.28.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# =============================================================================
+# UTILITIES & CONFIGURATION
+# =============================================================================
+python-dotenv>=1.0.0
+PyYAML>=6.0.1
+psutil>=6.0.0
+loguru>=0.7.0
+click>=8.1.0
+tqdm>=4.66.0
+tenacity>=8.2.0
+
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+numpy>=1.26.0
+pandas>=2.2.0
+pyarrow>=16.0.0
+
+# =============================================================================
+# DEVELOPMENT & TESTING (Optional)
+# =============================================================================
+pytest>=8.0.0
+black>=24.0.0
+flake8>=7.0.0
+
+# =============================================================================
+# SYSTEM DEPENDENCIES (Auto-installed)
+# =============================================================================
+# These are automatically installed as dependencies:
+# - filelock, fsspec, packaging, typing_extensions
+# - certifi, charset-normalizer, idna, urllib3
+# - setuptools, wheel
+
+# =============================================================================
+# INSTALLATION NOTES
+# =============================================================================
+# For TTS, you may need system libraries:
+# Ubuntu/Debian: sudo apt-get install espeak espeak-data libespeak1 libespeak-dev
+# macOS: brew install espeak
+
+# For video processing, you may need:
+# Ubuntu/Debian: sudo apt-get install ffmpeg
+# macOS: brew install ffmpeg
+
+# For document processing (OCR), you may need:
+# Ubuntu/Debian: sudo apt-get install tesseract-ocr
+# macOS: brew install tesseract
+
+# For audio processing:
+# Ubuntu/Debian: sudo apt-get install portaudio19-dev libasound2-dev
+# macOS: brew install portaudio
+
+# GPU Support:
+# For CUDA support, install torch with CUDA:
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 

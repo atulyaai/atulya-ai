@@ -1,0 +1,231 @@
+# Atulya AI - Dynamic Configuration (v0.1.0)
+# DeepSeek R1 as main brain with dynamic model delegation
+
+# Model capability mappings - DeepSeek R1 decides which to use
+model:
+  primary: "deepseek-r1"         # Main brain for analysis and delegation
+  text: "deepseek-r1"            # General text processing
+  vision: "blip-large"           # Image analysis and captioning
+  speech_input: "whisper-large"  # Speech to text
+  speech_output: "coqui-tts"     # Text to speech
+  video: "videomae-base"         # Video analysis
+  document: "layoutlm-v3"        # Document processing
+  audio_generation: "musicgen"   # Audio/music generation
+  embedding: "sentence-transformers" # Search and memory
+  
+# Available models - loaded dynamically on demand
+models:
+  # Main Brain - DeepSeek R1
+  deepseek-r1:
+    enabled: true
+    use_case: "general"
+    model: "deepseek-ai/deepseek-r1"
+    description: "Main brain for analysis, reasoning, and delegation"
+    priority: 1
+    memory_efficient: false
+    
+  # Vision Models
+  blip-large:
+    enabled: true
+    use_case: "vision"
+    model: "Salesforce/blip-image-captioning-large"
+    description: "Image captioning and visual question answering"
+    priority: 2
+    memory_efficient: true
+    
+  # Speech Models
+  whisper-large:
+    enabled: true
+    use_case: "speech_input"
+    model: "large-v3"
+    description: "Speech to text transcription"
+    priority: 2
+    memory_efficient: true
+    
+  coqui-tts:
+    enabled: true
+    use_case: "speech_output"
+    model: "tts_models/en/ljspeech/tacotron2-DDC"
+    description: "Text to speech synthesis"
+    priority: 2
+    memory_efficient: true
+    
+  # Video Models
+  videomae-base:
+    enabled: false  # Disabled by default - heavy model
+    use_case: "video"
+    model: "MCG-NJU/videomae-base"
+    description: "Video analysis and classification"
+    priority: 3
+    memory_efficient: false
+    
+  # Document Models
+  layoutlm-v3:
+    enabled: false  # Disabled by default - specialized use
+    use_case: "document"
+    model: "microsoft/layoutlmv3-base"
+    description: "Document layout understanding"
+    priority: 3
+    memory_efficient: true
+    
+  # Audio Generation
+  musicgen:
+    enabled: false  # Disabled by default - specialized use
+    use_case: "audio_generation"
+    model: "facebook/musicgen-small"
+    description: "Music and audio generation"
+    priority: 4
+    memory_efficient: false
+    
+  # Embedding Models
+  sentence-transformers:
+    enabled: true
+    use_case: "embedding"
+    model: "sentence-transformers/all-MiniLM-L6-v2"
+    description: "Text embeddings for search and memory"
+    priority: 1
+    memory_efficient: true
+
+# Dynamic behavior settings
+dynamic:
+  # Model loading behavior
+  auto_load: true              # Automatically load models when needed
+  auto_unload: true            # Unload unused models to save memory
+  max_concurrent_models: 3     # Maximum models loaded simultaneously
+  memory_threshold: 0.8        # Unload models when memory usage exceeds this
+  
+  # Intelligence settings
+  delegation_confidence: 0.7   # Minimum confidence for model delegation
+  fallback_to_main: true      # Fall back to main brain if specialized model fails
+  adaptive_loading: true       # Learn which models to keep loaded
+  
+  # Admin settings
+  admin_auto_approve: false    # Require explicit approval for admin actions
+  admin_users: ["admin", "system", "root"]
+  dynamic_config_updates: true # Allow runtime configuration updates
+
+# Memory and storage settings
+memory:
+  # Vector database for embeddings
+  vector_db: "chromadb"
+  vector_db_path: "Data/vector_db"
+  
+  # Conversation history
+  conversation_history_limit: 1000
+  user_profile_storage: "Data/user_profiles"
+  
+  # Memory management
+  auto_cleanup: true
+  cleanup_interval_hours: 24
+  max_memory_per_user: "100MB"
+
+# Tool settings
+tools:
+  # Auto-discovery settings
+  auto_discover: true
+  tools_directory: "Tools"
+  
+  # Tool categories
+  enabled_categories:
+    - "file_operations"
+    - "web_search"
+    - "email"
+    - "calendar"
+    - "code_execution"
+    - "system_admin"
+  
+  # Safety settings
+  sandboxed_execution: true
+  require_approval_for:
+    - "file_deletion"
+    - "system_commands"
+    - "network_access"
+    - "admin_operations"
+
+# Voice interface settings
+voice:
+  stt:
+    model: "whisper-large"
+    language: "en"
+    auto_detect_language: true
+    
+  tts:
+    model: "coqui-tts"
+    voice: "default"
+    speed: 1.0
+    
+  # Voice activity detection
+  vad_enabled: true
+  wake_word: "atulya"
+  wake_word_enabled: false
+
+# API and server settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_enabled: true
+  rate_limiting: true
+  max_requests_per_minute: 60
+  
+  # Streaming responses
+  streaming_enabled: true
+  chunk_size: 1024
+
+# Logging and monitoring
+logging:
+  level: "INFO"
+  file: "logs/atulya.log"
+  max_size: "100MB"
+  backup_count: 5
+  
+  # What to log
+  log_conversations: true
+  log_model_usage: true
+  log_performance: true
+  log_errors: true
+
+# Performance settings
+performance:
+  # GPU settings
+  use_gpu: true
+  gpu_memory_fraction: 0.7
+  mixed_precision: true
+  
+  # CPU settings
+  max_workers: 4
+  thread_pool_size: 10
+  
+  # Caching
+  enable_caching: true
+  cache_size: "1GB"
+  cache_ttl_minutes: 60
+
+# Safety and security
+security:
+  # Input validation
+  max_input_length: 10000
+  content_filtering: true
+  
+  # Model safety
+  safety_classifier: true
+  toxicity_threshold: 0.8
+  
+  # File access
+  allowed_file_extensions: [".txt", ".json", ".yaml", ".md", ".py"]
+  max_file_size: "10MB"
+  
+  # Network security
+  allowed_domains: []  # Empty means all domains allowed
+  proxy_settings: null
+
+# Updates and maintenance
+maintenance:
+  auto_update_models: false
+  auto_update_config: false
+  backup_frequency: "daily"
+  backup_location: "backups/"
+  
+  # Health checks
+  health_check_interval: 300  # seconds
+  auto_restart_on_failure: true
+  max_restart_attempts: 3 
